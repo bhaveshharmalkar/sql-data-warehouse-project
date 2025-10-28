@@ -30,7 +30,10 @@ SELECT
 	ci.cst_firstname AS first_name,
 	ci.cst_lastname AS last_name,
 	ci.cst_marital_status AS marital_status,
-	lo.cntry AS country,
+	-- lo.cntry AS country,
+	CASE WHEN lo.cntry IS NULL THEN 'n/a'
+	ELSE lo.cntry
+	END AS country,
 	CASE WHEN ci.cst_gndr != 'n/a' THEN ci.cst_gndr
 	ELSE COALESCE(ca.gen, 'n/a')
 	END AS gender,

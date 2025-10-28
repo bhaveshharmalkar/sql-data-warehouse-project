@@ -183,7 +183,7 @@ BEGIN
 			CASE 
 				WHEN UPPER(TRIM(cntry)) = 'DE' THEN 'Germany'
 				WHEN UPPER(TRIM(cntry)) IN ('US', 'USA') THEN 'United States'
-				WHEN TRIM(cntry) = '' OR cntry IS NULL THEN 'n/a'
+				WHEN TRIM(cntry) = ' ' OR cntry IS NULL THEN 'n/a'
 				ELSE TRIM(cntry)
 			END AS cntry	-- normalize and handle missing or blank country codes 
 		FROM
